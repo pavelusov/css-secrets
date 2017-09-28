@@ -17,6 +17,10 @@ module.exports = {
     module: {
         loaders: [
             {
+                test: /\.html$/,
+                loader: 'ngtemplate-loader!html-loader'
+            },
+            {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract(['css-loader', 'postcss-loader'])
             },
@@ -29,13 +33,24 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                loaders: 'babel-loader',
+                loader: 'babel-loader',
                 query: {
-                    presets: [
-                        'babel-preset-es2015',
-                        'babel-preset-es2016'
-                    ].map(require.resolve)
+                    'presets': [
+                        ["env", {
+                            "targets": {
+                                "browsers": [
+                                    "last 2 versions",
+                                    "safari >= 7",
+                                    "ie >= 9"
+                                ]
+                            }
+                        }]
+                    ]
                 }
+            },
+            {
+                test: /\.yaml$/,
+                loader: 'json-loader!yaml-loader'
             }
         ]
     },

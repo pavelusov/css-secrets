@@ -1,0 +1,6 @@
+- title: 'background'
+  fontawesome: 'fa fa-cube'
+- title: 'border'
+  fontawesome: 'fa fa-square-o'
+- title: 'color'
+  fontawesome: 'fa fa-paint-brush'
