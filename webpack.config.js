@@ -4,9 +4,14 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './app/static/app.js',
+    entry: {
+        vendor: [
+            'angular'
+        ],
+        app: './app/static/app.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -35,7 +40,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('style.css')
+        new ExtractTextPlugin('style.css'),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        })
     ],
     devServer: {
         compress: false,
