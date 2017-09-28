@@ -8,7 +8,7 @@ module.exports = {
         vendor: [
             'angular'
         ],
-        app: './app/static/app.js'
+        app: './app/js/app.js'
     },
     output: {
         filename: '[name].bundle.js',
