@@ -13,6 +13,54 @@
         width: 100%;
         .section {
             display: none;
+            &.intro {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                .titleSection {
+                    position: relative;
+                    .firstIntroTitle {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        font-size: 7rem;
+                        font-weight: 200;
+                        transform: translate(-50%, 0);
+                        z-index: 10;
+                        &.fadeIn.ng-enter {
+                            transform: translate(-45%, 0);
+                            transition: 1s linear all;
+                            opacity: 0;
+                        }
+                        &.fadeIn.ng-enter.ng-enter-active {
+                            transform: translate(-50%, 0);
+                            opacity: 1;
+                        }
+                    }
+                    .secondIntroTitle {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        font-size: 13rem;
+                        color: @c-dark;
+                        text-transform: uppercase;
+                        transform: translate(-50%, 25%) scale(4);
+                        z-index: 5;
+                        &.scaleFadeIn.ng-enter {
+                            transform: translate(-50%, 25%) scale(2);
+                            transition: 3s cubic-bezier(0.895, 0.03, 0.685, 0.22) all;
+                            opacity: 0;
+                        }
+                        &.scaleFadeIn.ng-enter.ng-enter-active {
+                            transform: translate(-50%, 25%) scale(4);
+                            opacity: 1;
+                        }
+                    }
+                    
+                }
+            }
             &.active {
                 display: block;
             }
@@ -28,6 +76,8 @@
         padding: 2rem 2rem;
         overflow: hidden;
         color: #eeeeee;
+        position: relative;
+        z-index: 30;
         &:before {
             font-size: 2rem;
             color: @fc-pink;
