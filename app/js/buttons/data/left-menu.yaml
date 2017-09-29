@@ -1,0 +1,6 @@
+- title: 'Полупрозрачная рамка'
+  fontawesome: 'fa fa-clone'
+  content: 'background-clip'
+- title: '3d текст'
+  fontawesome: 'fa fa-codepen'
+  content: 'text-shadow'

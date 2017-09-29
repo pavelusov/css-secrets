@@ -1,0 +1,45 @@
+/* VARS */
+
+/* font-size */
+@fs-desktop: 16px;
+
+/* font color */
+@fc-white: #ffffff;
+@fc-pink: hsl(306, 100%, 22%);
+
+/* color */
+@c-white: #ffffff;
+@c-dark: hsl(284, 100%, 4%);
+@c-middle: hsl(306, 100%, 10%);
+
+/* center */
+.center () {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    font-size: @fs-desktop;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: @c-dark;
+    color: @fc-white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+pre {
+    color: #000000;
+    padding: 20px;
+    white-space: pre-wrap;
+}
+@import "animation";
+@import "main";

@@ -1,0 +1,146 @@
+.contentWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    .leftColumn {
+        width: 300px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .rightColumn {
+        background: @c-middle;
+        width: 100%;
+        .sections {
+            width: 100%;
+            height: 100%;
+            .section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                &.intro {
+                    width: 100%;
+                    height: 100%;
+                    .titleSection {
+                        position: relative;
+                        .firstIntroTitle {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            font-size: 7rem;
+                            font-weight: 200;
+                            transform: translate(-50%, 0);
+                            z-index: 10;
+                            &.fadeIn.ng-enter {
+                                transform: translate(-45%, 0);
+                                transition: 1s linear all;
+                                opacity: 0;
+                            }
+                            &.fadeIn.ng-enter.ng-enter-active {
+                                transform: translate(-50%, 0);
+                                opacity: 1;
+                            }
+                        }
+                        .secondIntroTitle {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            font-size: 13rem;
+                            color: @c-dark;
+                            text-transform: uppercase;
+                            transform: translate(-50%, 25%) scale(4);
+                            z-index: 5;
+                            &.scaleFadeIn.ng-enter {
+                                transform: translate(-50%, 25%) scale(2);
+                                transition: 3s cubic-bezier(0.895, 0.03, 0.685, 0.22) all;
+                                opacity: 0;
+                            }
+                            &.scaleFadeIn.ng-enter.ng-enter-active {
+                                transform: translate(-50%, 25%) scale(4);
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                .content {
+                    width: 90%;
+                    height: 90%;
+                    background: #ffffff;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    opacity: 0;
+                    transform: perspective(1000px) rotateX(-90deg);
+                    transform-origin: center top 120px;
+                    transition: all 1s;
+                    &.active {
+                        opacity: 1;
+                        transform: perspective(1000px) rotateY(0deg);
+                    }
+                    .titleSection {
+                        color: @c-white;
+                        background: @fc-pink;
+                        margin: 0;
+                        padding: 10px 30px;
+                        text-align: right;
+                    }
+                    .columns {
+                        display: flex;
+                        justify-content: space-between;
+                        height: 100%;
+                        .leftColumnSection {
+                            background: hsl(0, 100%, 100%);
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        .rightColumnSection {
+                            background: hsl(0, 100%, 95%);
+                            width: 50%;
+                            height: 100%;
+                            border-left: 1px dashed lightgray;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .buttonSection {
+        display: block;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-shadow: 0 1px 10px @fc-pink;
+        position: relative;
+        padding: 2rem 2rem;
+        overflow: hidden;
+        color: #eeeeee;
+        z-index: 30;
+        &:before {
+            font-size: 2rem;
+            color: @fc-pink;
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translate(0, -50%) scale(1);
+            z-index: 10;
+            transition: all 1s;
+        }
+        &:hover {
+            background-color: @c-middle;
+            &:before {
+                left: 0.3rem;
+                transform: translate(0, -50%) scale(3);
+                transition: all 1s;
+                color: @c-dark;
+            }
+        }
+        .textButton {
+            position: relative;
+            z-index: 20;
+        }
+    }
+}

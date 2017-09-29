@@ -4,13 +4,23 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './app/static/app.js',
+    entry: {
+        vendor: [
+            'angular',
+            'angular-animate'
+        ],
+        app: './app/js/app.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
         loaders: [
+            {
+                test: /\.html$/,
+                loader: 'ngtemplate-loader!html-loader'
+            },
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract(['css-loader', 'postcss-loader'])
@@ -24,18 +34,32 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                loaders: 'babel-loader',
+                loader: 'babel-loader',
                 query: {
-                    presets: [
-                        'babel-preset-es2015',
-                        'babel-preset-es2016'
-                    ].map(require.resolve)
+                    'presets': [
+                        ["env", {
+                            "targets": {
+                                "browsers": [
+                                    "last 2 versions",
+                                    "safari >= 7",
+                                    "ie >= 9"
+                                ]
+                            }
+                        }]
+                    ]
                 }
+            },
+            {
+                test: /\.yaml$/,
+                loader: 'json-loader!yaml-loader'
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('style.css')
+        new ExtractTextPlugin('style.css'),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        })
     ],
     devServer: {
         compress: false,
