@@ -7,12 +7,13 @@ module.directive('buttonLeftMenu', () => {
         restrict: 'E',
         scope: {
             title: '@',
-            fontAwesome: '@'
+            fontAwesome: '@',
+            content: '@'
         },
         templateUrl: buttonTemplate,
         controller: $scope => {
             $scope.showContent = content => {
-
+                $scope.$emit('getContent', content);
             }
         }
     };

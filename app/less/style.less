@@ -8,8 +8,16 @@
 @fc-pink: hsl(306, 100%, 22%);
 
 /* color */
+@c-white: #ffffff;
 @c-dark: hsl(284, 100%, 4%);
 @c-middle: hsl(306, 100%, 10%);
+
+/* center */
+.center () {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 html {
     font-size: @fs-desktop;
@@ -28,6 +36,10 @@ body {
     margin: 0;
     padding: 0;
 }
-
+pre {
+    color: #000000;
+    padding: 20px;
+    white-space: pre-wrap;
+}
 @import "animation";
 @import "main";
