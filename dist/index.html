@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="companyWebsite">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS secrets</title>
+  <link rel="stylesheet" href="static/fonts/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://0.0.0.0:5002/style.css">
+  <script src="http://0.0.0.0:5002/vendor.bundle.js"></script>
+  <script src="http://0.0.0.0:5002/app.bundle.js"></script>
+</head>
+<body>
+<div class="contentWrapper" ng-controller="contentMainController">
+  <div class="leftColumn" ng-controller="leftMenuMainController">
+    <button-left-menu
+            ng-repeat="button in buttonsleftMenu"
+            title="{{ button.title }}"
+            font-awesome="{{ button.fontawesome }}"
+            content="{{ button.content }}">
+    </button-left-menu>
+  </div>
+  <div class="rightColumn">
+    <div class="sections" ng-controller="sectionsController">
+      <div class="section intro" ng-show="checkShowSection('intro')">
+        <h1 class="titleSection">
+          <span class="firstIntroTitle fadeIn" ng-if="showTitle">Secrets</span>
+          <span class="secondIntroTitle scaleFadeIn" ng-if="showTitle">css</span>
+        </h1>
+      </div>
+      <div class="section" ng-show="checkShowSection('section')">
+        <div class="content" ng-class="{'active': isActiveContent}">
+          <h1 class="titleSection">{{ sectionTitle }}</h1>
+          <div class="columns">
+            <div class="leftColumnSection">
+            </div>
+            <div class="rightColumnSection">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
