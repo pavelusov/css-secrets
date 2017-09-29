@@ -70,6 +70,14 @@
                     background: #ffffff;
                     border-radius: 10px;
                     overflow: hidden;
+                    opacity: 0;
+                    transform: perspective(1000px) rotateX(-90deg);
+                    transform-origin: center top 120px;
+                    transition: all 1s;
+                    &.active {
+                        opacity: 1;
+                        transform: perspective(1000px) rotateY(0deg);
+                    }
                     .titleSection {
                         color: @c-white;
                         background: @fc-pink;
