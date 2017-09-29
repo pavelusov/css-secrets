@@ -4,6 +4,7 @@
   "description": "CSS secret rules",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm install",
     "start": "concurrently --kill-others \"node server.js\" \"webpack-dev-server --content-base dist\""
   },
   "repository": {
