@@ -12,8 +12,8 @@ module.directive('buttonLeftMenu', () => {
         },
         templateUrl: buttonTemplate,
         controller: $scope => {
-            $scope.showContent = content => {
-                $scope.$emit('getContent', content);
+            $scope.showContent = (data) => {
+                $scope.$emit('getContent', data);
             }
         }
     };

@@ -1,6 +1,6 @@
 - title: 'Полупрозрачная рамка'
   fontawesome: 'fa fa-cube'
   content: 'background-clip'
-- title: 'Срезанные круглые углы'
+- title: '3d текст'
   fontawesome: 'fa fa-square-o'
-  content: 'radial_gradient_circle'
+  content: 'text-shadow'
