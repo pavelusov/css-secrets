@@ -7,7 +7,6 @@ module.directive('modalFormQuestion', () => {
         restrict: 'E',
         templateUrl: questionTemplate,
         controller: ($scope, $http) => {
-
         }
     };
 });
