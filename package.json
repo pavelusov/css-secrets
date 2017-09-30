@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "npm install",
-    "start": "concurrently --kill-others \"node server.js\" \"webpack-dev-server --content-base dist\""
+    "start": "concurrently --kill-others \"nodemon server.js\" \"webpack-dev-server --content-base dist\""
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "ngtemplate-loader": "^2.0.1",
+    "nodemon": "^1.12.1",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
