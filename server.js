@@ -14,6 +14,17 @@ app.get('/section/', function (req, res) {
     res.send(content);
 });
 
+app.post('/forms/', function (req, res) {
+    // TO-DO check request
+    res.set({
+        'Content-Type': 'application/json',
+    });
+    res.status(200).send({
+        "message": "Выше сообщение полученно!",
+        "response": "true"
+    });
+});
+
 app.listen(5000, function () {
     console.log('EXPRESS Server listening on port 5000!');
     console.log('http://localhost:5000');

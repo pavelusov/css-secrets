@@ -49,9 +49,11 @@
   <div class="overlay"
        ng-class="{active: isActive}"
        ng-click="hideOverlay()">
-    <div class="modalWrapper fa fa-window-close"
+    <div class="modalWrapper"
     ng-click="$event.stopPropagation()">
+      <span class="crossButton fa fa-window-close" ng-click="hideModule()"></span>
       <modal-form></modal-form>
+      <div class="responseWrapper" ng-show="isResponse">{{ responseText }}</div>
     </div>
   </div>
 </div>

@@ -25,12 +25,14 @@
             padding: 20px;
             z-index: 200;
             background: @c-middle;
-            &:before {
+            .crossButton {
                 position: absolute;
-                font-size: 1rem;
                 top: 0;
                 right: -2rem;
-                color: @fc-pink;
+                &:before {
+                    font-size: 1rem;
+                    color: @fc-pink;
+                }
             }
             .formModal {
                 display: flex;
