@@ -144,6 +144,7 @@
         }
     }
 }
+
 .questionButton {
     position: fixed;
     left: 2%;
@@ -155,34 +156,38 @@
     animation-fill-mode: both;
     z-index: 100;
     border: 30px solid transparent;
+    &:hover {
+        animation-play-state: paused;
+    }
 }
+
 @keyframes vibrate {
-  from {
-    transform: none;
-      opacity: 0;
-  }
-  15% {
-    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
-      color: @c-middle;
-  }
-  30% {
-    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
-      opacity: 1;
-  }
-  45% {
-    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
-      color: @fc-pink;
-  }
-  60% {
-    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
-      opacity: 1;
-  }
-  75% {
-    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
-      color: @c-middle;
-  }
-  to {
-    transform: none;
-      opacity: 0;
-  }
+    from {
+        transform: none;
+        opacity: 0;
+    }
+    15% {
+        transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+        color: @c-middle;
+    }
+    30% {
+        transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+        opacity: 1;
+    }
+    45% {
+        transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+        color: @fc-pink;
+    }
+    60% {
+        transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+        color: @c-middle;
+    }
+    to {
+        transform: none;
+        opacity: 0;
+    }
 }

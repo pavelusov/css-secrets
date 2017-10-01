@@ -1,0 +1,41 @@
+<form class="question formModal" name="questionForm" ng-submit="submitForm(questionForm)">
+  <div class="titleModal">Задать вопрос:</div>
+  <div class="topWrapper">
+    <div class="leftWrapper">
+      <label for="nameQuestion" class="nameQuestion">Имя:</label>
+      <input type="text"
+             name="nameQuestion"
+             id="nameQuestion"
+             ng-model="nameQuestion">
+    </div>
+    <div class="rightWrapper">
+      <label for="emailQuestion" class="emailQuestion">Эл.почта:</label>
+      <input type="text"
+             name="emailQuestion"
+             id="emailQuestion"
+             ng-model="emailQuestion">
+    </div>
+  </div>
+  <textarea name="someQuestion"
+            id="someQuestion"
+            rows="10"
+            placeholder="Ваш вопрос."
+            ng-model="someQuestion">
+  </textarea>
+  <div class="bottomWrapper">
+    <div class="politicWrapper">
+      <input type="checkbox"
+             id="checkPolitics"
+             name="checkPolitics"
+             ng-model="politics">
+      <label for="checkPolitics" class="politicLabel">Я согласен с политикой конфиденциальности персональных данных и даю
+        свое согласие на их обработку</label>
+    </div>
+    <input type="submit"
+           value="Отправить"
+           class="submitQuestionForm"
+           ng-class="{active: isEnableButton}"
+           ng-disabled="!isEnableButton">
+  </div>
+
+</form>

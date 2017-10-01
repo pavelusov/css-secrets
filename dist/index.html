@@ -44,11 +44,14 @@
 <div class="footer"></div>
 <div class="modals" ng-controller="modalsController">
   <div class="questionButton fa fa-question-circle-o"
-
-        ng-click="callModal($event)"></div>
-  <div class="overlay">
-    <div class="modalWrapper">
-      <modal-form-question></modal-form-question>
+       data-modal="question"
+       ng-click="callModal($event)"></div>
+  <div class="overlay"
+       ng-class="{active: isActive}"
+       ng-click="hideOverlay()">
+    <div class="modalWrapper fa fa-window-close"
+    ng-click="$event.stopPropagation()">
+      <modal-form></modal-form>
     </div>
   </div>
 </div>

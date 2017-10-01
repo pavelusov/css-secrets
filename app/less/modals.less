@@ -1,0 +1,104 @@
+.modals {
+    .overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: hsla(0, 0%, 0%, .5);
+        z-index: -1;
+        opacity: 0;
+        transition: all 1s;
+        &.active {
+            transition: all 1s;
+            z-index: 100;
+            opacity: 1;
+        }
+        .modalWrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid @fc-pink;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 200;
+            background: @c-middle;
+            &:before {
+                position: absolute;
+                font-size: 1rem;
+                top: 0;
+                right: -2rem;
+                color: @fc-pink;
+            }
+            .formModal {
+                display: flex;
+                flex-direction: column;
+                .titleModal {
+                    position: relative;
+                    padding-bottom: 20px;
+                    margin-bottom: 20px;
+                    &:after {
+                        content: '';
+                        border-bottom: 1px solid @fc-pink;
+                        position: absolute;
+                        bottom: 0;
+                        left: -20px;
+                        right: -20px;
+                        display: block;
+                    }
+                }
+                &.question {
+                    min-width: 210px;
+                    width: 100%;
+                    .topWrapper {
+                        margin-bottom: 20px;
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        label {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
+                        .leftWrapper {
+                            width: 40%;
+                            .nameQuestion {
+                            }
+                            input {
+                                width: 90%;
+                            }
+                        }
+                        .rightWrapper {
+                            width: 60%;
+                            padding-left: 10px;
+                            .emailQuestion {
+                            }
+                            input {
+                                width: 97%;
+                            }
+                        }
+                    }
+                    .bottomWrapper {
+                        width: 100%;
+                        .politicWrapper {
+                            margin-bottom: 20px;
+                            .politicLabel {
+                                font-size: .7rem;
+                            }
+                        }
+                        textarea {
+                            width: 200px;
+                        }
+                    }
+                    .submitQuestionForm {
+                        opacity: 0.3;
+                        &.active {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
