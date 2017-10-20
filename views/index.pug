@@ -1,0 +1,25 @@
+extends base
+block content
+  .contentWrapper(ng-controller="contentMainController")
+    .leftColumn(ng-controller="leftMenuMainController")
+      button-left-menu(ng-repeat="button in buttonsleftMenu", title="{{ button.title }}", font-awesome="{{ button.fontawesome }}", content="{{ button.content }}")
+    .rightColumn
+      .sections(ng-controller="sectionsController")
+        .section.intro(ng-show="checkShowSection('intro')")
+          h1.titleSection
+            span.firstIntroTitle.fadeIn(ng-if="showTitle") Secrets
+            span.secondIntroTitle.scaleFadeIn(ng-if="showTitle") css
+        .section(ng-show="checkShowSection('section')")
+          .content(ng-class="{'active': isActiveContent}")
+            h1.titleSection {{ sectionTitle }}
+            .columns
+              .leftColumnSection
+              .rightColumnSection
+  .footer
+  .modals(ng-controller="modalsController")
+    .questionButton.fa.fa-question-circle-o(data-modal="question", ng-click="callModal($event)")
+    .overlay(ng-class="{active: isActive}", ng-click="hideOverlay()")
+      .modalWrapper(ng-click="$event.stopPropagation()")
+        span.crossButton.fa.fa-window-close(ng-click="hideModule()")
+        modal-form
+        .responseWrapper(ng-show="isResponse") {{ responseText }}

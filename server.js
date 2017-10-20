@@ -1,17 +1,18 @@
 var fs = require('fs'),
-    index = fs.readFileSync(__dirname + '/dist/index.html'),
+    index = fs.createReadStream(__dirname + '/dist/index.html'),
     express = require('express'),
-    app = express();
+    app = express(),
+    port = process.env.PORT || 5000;
 
 app.use(express.static('dist'));
 
 app.get('/', function (req, res) {
-    res.render(index, {title: 'Hey', message: 'Hello there!'});
+    index.pipe(res);
 });
 
 app.get('/section/', function (req, res) {
     var content = getContent(req.query.id);
-    res.send(content);
+	content.pipe(res);
 });
 
 app.post('/forms/', function (req, res) {
@@ -25,12 +26,12 @@ app.post('/forms/', function (req, res) {
     });
 });
 
-app.listen(5000, function () {
+app.listen(port, function () {
     console.log('EXPRESS Server listening on port 5000!');
     console.log('http://localhost:5000');
 });
 
 function getContent(id) {
-    var content = fs.readFileSync(__dirname + '/dist/data/' + id + '.html');
+    var content = fs.createReadStream(__dirname + '/dist/data/' + id + '.html');
     return content;
 }
